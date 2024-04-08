@@ -1,5 +1,3 @@
-import pgPromise from "pg-promise";
-import pg from "pg-promise/typescript/pg-subset";
 import { connect } from "../../infra/db/postgresConnector";
 
 interface CreateAccountData {
@@ -22,7 +20,7 @@ export class AccountRepository {
 
 	async getByEmail(email: string) {
 		const [acc] = await this.connection.query(
-			"select * from cccat15.account where email = $1",
+			`select * from cccat15.account where email = $1`,
 			[email]
 		);
 

@@ -11,13 +11,11 @@ export class SignupController {
 			isPassenger: req.body.isPassenger ?? false,
 			carPlate: req.body.carPlate,
 		};
-
+		console.log(data);
 		const result = await signup(data);
 
-		if (typeof result === "number") {
-			res.status(422).send(result + "");
-		} else {
-			res.json(result);
-		}
+		if (typeof result === "number") return res.status(422).send(result + "");
+
+		return res.json(result);
 	}
 }
