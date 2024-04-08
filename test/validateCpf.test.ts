@@ -1,4 +1,4 @@
-import { validate } from "../src/validators/validateCpf";
+import { validate } from "../src/helpers/validators/validateCpf";
 
 test.each(["97456321558", "71428793860", "87748248800"])(
 	"Deve testar um cpf válido: %s",
